@@ -27,18 +27,21 @@ struct node * removeEveryKthNode(struct node *head, int K) {
 	while (temp != NULL)
 	{
 		c++;
-		pre = temp;
-		temp = temp->next;
-		if (c == K - 1)
+		if (c == K )
 		{
 			if (temp->next == NULL)
 			{
 				pre->next = NULL;
 				return head;
 			}
-			pre->next = temp->next;
 			temp = temp->next;
+			pre->next = temp;
 			c = 0;
+		}
+		else
+		{
+			pre = temp;
+			temp = temp->next;
 		}
 	}
 	return head;
